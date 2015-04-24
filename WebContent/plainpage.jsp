@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Login</title>
+	<link href="styleLogin.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Varela+Round">
+	<script>
+	function fixmemberId(txtBox) {
+       if (txtBox == null) { 
+           return '' }
+       
+       if (txtBox.value.length == 9) {
+           txtBox.value = txtBox.value.substring(0, 3) + '-' + txtBox.value.substring(3, 5) + '-' + txtBox.value.substring(5, 9)
+       }
+       
+       return txtBox.value;
+   	}
+   	function validateLogin(login)   
+   {
+	 var pattern = /^\d{3}-\d{2}-\d{4}$/;
+     if(login.sjsuid.value==null ||login.sjsuid.value == ''){
+			alert('SJSU ID cannot be empty');
+			return false;
+	 }else if(!login.sjsuid.value.match(pattern)){
+	 	alert('SJSU ID is in invalid format. It should be all digits');
+		return false;
+	 }
+	if(login.password.value==null ||login.password.value == ''){
+		alert('Password cannot be empty');
+		return false;
+	}
+		login.sjsuid.value=login.sjsuid.value.replace('-','');
+		login.sjsuid.value=login.sjsuid.value.replace('-','');
+		return true;
+	}
+	</script>
+</head>
+
+<body>
+
+	
+
+</body>
+</html>
